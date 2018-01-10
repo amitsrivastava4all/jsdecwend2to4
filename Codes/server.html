@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .size {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+    <script>
+        function ajaxCall() {
+            var domain = document.querySelector("#domain").value;
+            //var url = "http://freegeoip.net/json/" + domain;
+            var url = "http://api.giphy.com/v1/gifs/search?q=" + domain + "&api_key=dc6zaTOxFJmzC";
+            var xmlHttpRequest = new XMLHttpRequest();
+            xmlHttpRequest.open("GET", url);
+            xmlHttpRequest.onreadystatechange = function() {
+                console.log("State is ", xmlHttpRequest.readyState);
+                if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
+                    printDetails(xmlHttpRequest.responseText);
+                }
+            }
+            console.log("Before Send");
+            xmlHttpRequest.send(null);
+            console.log("After Send");
+        }
+
+        function printDetails(json) {
+            var object = JSON.parse(json);
+            document.querySelector("#images").innerHTML = "";
+            for (let i = 0; i < object.data.length; i++) {
+                var img = document.createElement("img");
+                img.src = object.data[i].images.original.url;
+                img.className = "size";
+                console.log("Image is ", object.data[i].images.original.url);
+                document.querySelector("#images").appendChild(img);
+            }
+            //console.log("Object is ", object);
+            //document.querySelector("#output").innerHTML = object;
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" placeholder="Type Domain Name" id="domain">
+    <button onclick="ajaxCall()">Call</button>
+    <br>
+    <div id="images">
+
+    </div>
+</body>
+
+</html>
