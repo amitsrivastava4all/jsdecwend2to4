@@ -1,0 +1,80 @@
+eventdemo.html:19 Work Start...
+eventdemo.html:27 Work End
+function doWork(){
+console.log("Work Start...");
+                for (let i = 1; i <= 1000; i++) {
+                    for (let j = 1; j <= 1000; j++) {
+                        for (let k = 1; k <= 1000; k++) {
+
+                        }
+                    }
+                }
+                console.log("Work End");
+return 2000;
+}
+undefined
+A bad HTTP response code (404) was received when fetching the script.
+sw.js Failed to load resource: net::ERR_INVALID_RESPONSE
+console.log("Before doWork ");
+var d = doWork();
+console.log("do Work Return and Result "+d);
+VM1559:1 Before doWork 
+VM1438:2 Work Start...
+VM1438:10 Work End
+VM1559:3 do Work Return and Result 2000
+undefined
+console.log("Before doWork ");
+var d = doWork();
+console.log("do Work Return and Result "+d);
+VM1570:1 Before doWork 
+VM1438:2 Work Start...
+VM1438:10 Work End
+VM1570:3 do Work Return and Result 2000
+undefined
+console.log("Before doWork ");
+var d = setTimeout(doWork,7000);
+console.log("do Work Return and Result "+d);
+VM1658:1 Before doWork 
+VM1658:3 do Work Return and Result 792
+undefined
+VM1438:2 Work Start...
+VM1438:10 Work End
+console.log("Before doWork ");
+var d = doWork();
+console.log("do Work Return and Result "+d);
+VM1707:1 Before doWork 
+VM1438:2 Work Start...
+VM1438:10 Work End
+VM1707:3 do Work Return and Result 2000
+undefined
+console.log("Before doWork ");
+var d = setTimeout(doWork,7000);
+console.log("do Work Return and Result "+d);
+VM1719:1 Before doWork 
+VM1719:3 do Work Return and Result 899
+undefined
+VM1438:2 Work Start...
+VM1438:10 Work End
+console.log("Hello");
+VM1787:1 Hello
+undefined
+sw.js:38 Fetch finished loading: GET "http://localhost:3000/browser-sync/socket.io/?EIO=3&transport=polling&t=M4t5tn5".
+(anonymous) @ sw.js:38
+Promise resolved (async)
+self.addEventListener @ sw.js:34
+sw.js:38 Fetch finished loading: POST "http://localhost:3000/browser-sync/socket.io/?EIO=3&transport=polling&t=M4t5tnR&sid=YKgeS4IwVd-FCdbXAAAq".
+(anonymous) @ sw.js:38
+Promise resolved (async)
+self.addEventListener @ sw.js:34
+sw.js:38 Fetch finished loading: GET "http://localhost:3000/browser-sync/socket.io/?EIO=3&transport=polling&t=M4t5tnW&sid=YKgeS4IwVd-FCdbXAAAq".
+(anonymous) @ sw.js:38
+Promise resolved (async)
+self.addEventListener @ sw.js:34
+console.log("Before doWork ");
+var d = doWork();
+console.log("do Work Return and Result "+d);
+VM1997:1 Before doWork 
+VM1438:2 Work Start...
+VM1438:10 Work End
+VM1997:3 do Work Return and Result 2000
+undefined

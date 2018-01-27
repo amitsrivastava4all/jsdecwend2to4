@@ -1,0 +1,56 @@
+var object = {id:1001,name:'Ram',salary:9999};
+undefined
+typeof object;
+"object"
+class A
+{
+constructor(x,y){
+this.x = x ;
+this.y = y;
+}
+}
+undefined
+var obj = new A(10,20);
+undefined
+obj;
+A {x: 10, y: 20}
+var t= JSON.stringify(obj);
+undefined
+t;
+"{"x":10,"y":20}"
+var t= JSON.stringify(object);
+undefined
+t;
+"{"id":1001,"name":"Ram","salary":9999}"
+typeof t;
+"string"
+typeof object;
+"object"
+typeof obj;
+"object"
+var x1 = JSON.parse(t);
+undefined
+x1;
+{id: 1001, name: "Ram", salary: 9999}
+var w =100;
+undefined
+var v ;
+undefined
+var g = {w,v};
+undefined
+gg;
+VM853:1 Uncaught ReferenceError: gg is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM853:1
+g;
+{w: 100, v: undefined}
+var s = 100/0;
+undefined
+typeof s;
+"number"
+var bb = "Hello" - "how";
+undefined
+bb;
+NaN
+typeof bb;
+"number"
