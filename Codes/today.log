@@ -1,0 +1,182 @@
+var x = "    Amit     Srivastava     ";
+undefined
+console.log("["+x+"]");
+VM201:1 [    Amit     Srivastava     ]
+undefined
+console.log("["+x.trim()+"]");
+VM225:1 [Amit     Srivastava]
+undefined
+function doWork(){
+console.log("Work Start...");
+                for (let i = 1; i <= 1000; i++) {
+                    for (let j = 1; j <= 1000; j++) {
+                        for (let k = 1; k <= 1000; k++) {
+
+                        }
+                    }
+                }
+                console.log("Work End");
+return 2000;
+}
+undefined
+console.log("Before doWork ");
+var d = doWork();
+console.log("do Work Return and Result "+d);
+VM296:1 Before doWork 
+VM283:2 Work Start...
+VM283:10 Work End
+VM296:3 do Work Return and Result 2000
+undefined
+console.log("Before doWork ");
+var d = setTimeout(doWork,7000);
+console.log("do Work Return and Result "+d);
+VM308:1 Before doWork 
+VM308:3 do Work Return and Result 1
+undefined
+VM283:2 Work Start...
+VM283:10 Work End
+function doWork(){
+var v = 2000;
+console.log("Work Start...");
+                for (let i = 1; i <= 1000; i++) {
+                    for (let j = 1; j <= 1000; j++) {
+                        for (let k = 1; k <= 1000; k++) {
+							c
+                        }
+                    }
+                }
+callMe(v);
+                console.log("Work End");
+return v;
+}
+function callMe(v){
+console.log("call Me has ",v);
+}
+undefined
+doWork();
+VM537:3 Work Start...
+VM537:7 Uncaught ReferenceError: c is not defined
+    at doWork (<anonymous>:7:8)
+    at <anonymous>:1:1
+doWork @ VM537:7
+(anonymous) @ VM559:1
+function doWork(){
+var v = 2000;
+console.log("Work Start...");
+                for (let i = 1; i <= 1000; i++) {
+                    for (let j = 1; j <= 1000; j++) {
+                        for (let k = 1; k <= 1000; k++) {
+							
+                        }
+                    }
+                }
+callMe(v);
+                console.log("Work End");
+return v;
+}
+function callMe(v){
+console.log("call Me has ",v);
+}
+undefined
+doWork();
+VM570:3 Work Start...
+VM570:16 call Me has  2000
+VM570:12 Work End
+2000
+setTimeout(doWork,3000);
+2
+VM570:3 Work Start...
+VM570:16 call Me has  2000
+VM570:12 Work End
+function doWork(fn){
+var v = 2000;
+console.log("Work Start...");
+                for (let i = 1; i <= 1000; i++) {
+                    for (let j = 1; j <= 1000; j++) {
+                        for (let k = 1; k <= 1000; k++) {
+							
+                        }
+                    }
+                }
+fn(v);
+                console.log("Work End");
+return v;
+}
+function callMe(v){
+console.log("call Me has ",v);
+}
+doWork(callMe);
+VM716:3 Work Start...
+VM716:16 call Me has  2000
+VM716:12 Work End
+2000
+setTimeout(()=>{
+var a = 100;
+var b= 200;
+var c = a + b;
+return c;
+},3000);
+3
+setTimeout(()=>{
+var a = 100;
+var b= 200;
+var c = a + b;
+console.log("SUm is ",c);
+return c;
+},3000);
+4
+VM1034:5 SUm is  300
+var e = setTimeout(()=>{
+var a = 100;
+var b= 200;
+var c = a + b;
+console.log("SUm is ",c);
+return c;
+},3000);
+undefined
+VM1068:5 SUm is  300
+e;
+5
+var e = setTimeout(()=>{
+var a = 100;
+var b= 200;
+var c = a + b;
+console.log("SUm is ",c);
+return c;
+},3000);
+console.log('I will Call Immediate ');
+VM1132:8 I will Call Immediate 
+undefined
+VM1132:5 SUm is  300
+var pr = new Promise((resolve,reject)=>{
+setTimeout(()=>{
+var a = 100;
+var b= 200;
+var c = a + b;
+console.log("SUm is ",c);
+resolve(c);
+//return c;
+},3000);
+})
+undefined
+VM1363:6 SUm is  300
+pr.then(data=>console.log("Data is ",data)).catch(err=>console.log("error is ",err));
+VM1632:1 Data is  300
+Promise {<resolved>: undefined}
+pr.then(data=>console.log("Data is ",data)).catch(err=>console.log("error is ",err));
+VM1644:1 Data is  300
+Promise {<resolved>: undefined}
+document.createElement("img");
+<img>​
+document.createElement("g1");
+<g1>​</g1>​
+document.createElement("h1");
+<h1>​</h1>​
+var img =document.createElement("img");
+undefined
+img.src="https://media1.giphy.com/media/AbYxDs20DECQw/giphy.gif?cid=e1bb72ff5a6d9cdc48316e6a598e86c6"
+"https://media1.giphy.com/media/AbYxDs20DECQw/giphy.gif?cid=e1bb72ff5a6d9cdc48316e6a598e86c6"
+img;
+<img src=​"https:​/​/​media1.giphy.com/​media/​AbYxDs20DECQw/​giphy.gif?cid=e1bb72ff5a6d9cdc48316e6a598e86c6">​
+document.body.appendChild(img);
+<img src=​"https:​/​/​media1.giphy.com/​media/​AbYxDs20DECQw/​giphy.gif?cid=e1bb72ff5a6d9cdc48316e6a598e86c6">​
