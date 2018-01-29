@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .icon {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+    <script>
+        function doSearch() {
+            var searchValue = document.querySelector("#searchVal").value;
+            var url = "http://api.giphy.com/v1/gifs/search?q=" + searchValue + "&api_key=dc6zaTOxFJmzC&limit=20";
+            fetch(url).then(response => {
+                response.json().then(data => {
+                    document.getElementById("result").innerHTML = "";
+                    console.log("Data is ", data);
+                    console.log("Data ", data.data.length);
+                    data = data.data;
+                    for (let i = 0; i < data.length; i++) {
+                        var img = document.createElement("img");
+                        img.src = data[i].images.original.url;
+                        img.class = "icon";
+                        document.getElementById("result").appendChild(img);
+                    }
+                });
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <input onchange="doSearch()" type="text" id="searchVal" placeholder="Type to Search any Image">
+    <hr>
+    <div id="result"></div>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var counter = 1;
+
+        function sayHello() {
+            document.querySelector("#count").innerHTML = counter;
+            counter++;
+        }
+
+        function work() {
+            setTimeout(() => {
+                console.log("Work Start...");
+                for (let i = 1; i <= 1000; i++) {
+                    for (let j = 1; j <= 1000; j++) {
+                        for (let k = 1; k <= 1000; k++) {
+
+                        }
+                    }
+                }
+                console.log("Work End");
+            }, 7000);
+
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Counter is <span id="count"></span></h2>
+    <button onclick="sayHello()">Say hello</button>
+    <button onclick="work()">Do Work</button>
+</body>
+
+</html>
