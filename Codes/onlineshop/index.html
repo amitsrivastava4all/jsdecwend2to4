@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Online Shop</title>
+    <style>
+        .size {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script src="js/ajax.js"></script>
+    <script src="js/item.js"></script>
+    <script src="js/itemcrud.js"></script>
+    <script src="js/controller.js"></script>
+</head>
+
+<body>
+    <input type="text" placeholder="Type Item price to Search" id="searchByPrice">
+    <select id="sort">
+        <option value="none">Select Sort</option>
+        <option value="price">price</option>
+        <option value="id">id</option>
+    </select>
+    <h2>Online Shop</h2>
+    <div id="result">
+
+    </div>
+</body>
+
+</html>
