@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="angular.min.js"></script>
+</head>
+
+<body ng-app>
+    <input ng-init="showme=false" type="checkbox" ng-model="showme"> {{showme}}
+    <div ng-show="showme">
+        <input ng-init="price=0" type="text" ng-model="price" placeholder="Type Price"> Price is {{price|currency:'&#8377;'}} <br>
+        <input ng-init="qt=0" type="text" ng-model="qt" placeholder="Type Quantity"> Quantity is {{qt}}
+        <br> Total Amount is {{price * qt|currency:'&#8377;'}}
+    </div>
+</body>
+
+</html>
