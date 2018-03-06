@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="libs/angular.min.js"></script>
+    <script>
+        const app = angular.module("myapp", []);
+        app.controller("myctrl", ($scope, myfactory) => {
+            $scope.load = () => {
+                console.log("Load CALL CTRL ");
+                var pr = myfactory.talkToServer($scope);
+                console.log("DATA SET CTRL ");
+                for (let i = 1; i <= 10; i++) {
+                    console.log("TimePass", i);
+                }
+                pr.then(function(data) {
+                    $scope.result = data;
+                }, function(err) {
+                    $scope.error = err;
+                })
+            }
+        });
+        app.factory("myfactory", ($http, $q) => {
+            const object = {
+                talkToServer(s) {
+                    var pr = $q.defer();
+                    console.log("SERVER CALL FACTORY ");
+                    var url = "http://localhost:4000/items";
+                    $http.get(url).then(success, fail);
+
+                    function success(data) {
+                        console.log("SUCCESS ", data);
+                        pr.resolve(data);
+                        //s.result = data;
+                        //return data;
+                    }
+
+                    function fail(error) {
+                        pr.reject(error);
+                        //return error;
+                    }
+                    // offers, discount, coupons
+                    return pr.promise;
+                }
+            };
+            return object;
+        })
+    </script>
+    <style>
+        .size {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body ng-app="myapp" ng-controller="myctrl">
+    <button ng-click="load()">Load Products</button>
+    <input type="text" ng-model="search.price" placeholder="Type to Search">
+    <select ng-model="sort">
+        <option>price</option>
+        <option>id</option>
+        <option>name</option>
+    </select>
+    <input type="checkbox" ng-model="dir"> Asc/Desc {{dir}}
+    <ul>
+        <li ng-repeat="item in result.data|filter:search|orderBy:sort:dir">
+            {{item.id}} {{item.name}} {{item.price}}
+            <img class="size" ng-src="{{item.url}}" alt="">
+        </li>
+    </ul>
+</body>
+
+</html>
