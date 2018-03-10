@@ -1,0 +1,47 @@
+
+function logic(){
+var object = {
+one(){
+},
+two(){
+}
+
+}
+return object;
+}
+
+var factory = logic();
+
+function Service(){
+this.one=()=>{};
+this.two = ()=>{};
+}
+
+
+
+var object = {
+arr :[10,20,31,40,51],evenArr:[],
+
+traverse(){
+//console.log("this is ",this);
+var that = this;
+this.arr.forEach(function(element){
+if(element%2==0){
+that.evenArr.push(element);
+}
+})
+}
+}
+
+var object = {
+arr :[10,20,31,40,51],evenArr:[],
+
+traverse(){
+//console.log("this is ",this);
+//var that = this;
+this.arr.forEach((element)=>{
+if(element%2==0){
+this.evenArr.push(element);
+}
+})
+}
