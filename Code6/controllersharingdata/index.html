@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script>
+        const app2 = angular.module("myapp2", []);
+        app2.filter("prefix", () => {
+            return function(str, pr) {
+                return pr + "-" + str;
+            }
+        });
+        app2.factory("factory2", () => {
+            var object = {
+                sayHello(str) {
+                    return "Hello " + str;
+                }
+            }
+            return object;
+        })
+
+        const app = angular.module("myapp", ["myapp2"]);
+        app.factory("myfactory", () => {
+            var object = {
+                x: 0,
+                setX(x) {
+                    this.x = x;
+                },
+                getX() {
+                    return this.x;
+                }
+
+
+            }
+
+            ;
+
+            return object;
+        });
+        app.controller("myctrl", ($scope, $rootScope, myfactory) => {
+            var emps = [{
+                id: 1001,
+                name: 'Ram',
+                salary: 9000
+            }, {
+                id: 1002,
+                name: 'Shyam',
+                salary: 8888
+            }];
+            $scope.emps = emps;
+            $rootScope.firstName = "Amit";
+            myfactory.setX(1000);
+        });
+        app.controller("myctrl2", ($scope, myfactory, factory2) => {
+            $scope.lastName = "Srivastava";
+            $scope.fullName = $scope.firstName + " " + $scope.lastName + " X IS " + myfactory.getX() + " " + factory2.sayHello("Ram");
+        });
+    </script>
+</head>
+
+<body ng-app="myapp">
+    <div ng-controller="myctrl">
+
+        <h3>Employees are </h3>
+        <ul>
+            <li ng-repeat="emp in emps">
+                {{emp.id|prefix:'TCS'}} {{emp.name|uppercase}} {{emp.salary|currency}}
+            </li>
+        </ul>
+        First Name is {{firstName}}
+        <!-- <div ng-controller="myctrl2">
+                First Name is {{firstName}} LastName is {{lastName}}
+            </div> -->
+
+    </div>
+
+    <div ng-controller="myctrl2">
+        First Name is {{firstName}} LastName is {{lastName}}
+        <br> FullName is {{fullName}}
+    </div>
+
+
+
+    <input type="text" ng-model="name">
+    <h2 class="alert-success">{{name}}</h2>
+
+</body>
+
+</html>

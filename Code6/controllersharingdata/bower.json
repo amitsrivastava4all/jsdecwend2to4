@@ -1,0 +1,21 @@
+{
+  "name": "controllersharingdata",
+  "authors": [
+    "amit4alljava <amit4alljava@gmail.com>"
+  ],
+  "description": "this is a test project",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.9",
+    "bootstrap": "^4.0.0"
+  }
+}
