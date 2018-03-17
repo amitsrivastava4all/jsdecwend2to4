@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="libs/angular.min.js"></script>
+    <script src="item.js"></script>
+    <script src="itemoperations.js"></script>
+    <script src="app.js">
+    </script>
+    <script src="value.js">
+    </script>
+    <script src="factory.js">
+    </script>
+    <script src="controller.js">
+    </script>
+    <style>
+        .size {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body ng-app="myapp" ng-controller="myctrl">
+    <button ng-click="load()">Load Products</button>
+    <input type="text" ng-model="search.price" placeholder="Type to Search">
+    <select ng-model="sort">
+        <option>price</option>
+        <option>id</option>
+        <option>name</option>
+    </select>
+    <input type="checkbox" ng-model="dir"> Asc/Desc {{dir}}
+    <ul>
+        <li ng-repeat="item in result|filter:search|orderBy:sort:dir">
+            {{item.id}} {{item.name}} {{item.price}}
+            <img class="size" ng-src="{{item.url}}" alt="">
+            <button ng-click="like(item.id)">Like {{item.like}}</button>
+            <button ng-click="addToCart(item.id)">Add to Cart</button>
+        </li>
+    </ul>
+</body>
+
+</html>
