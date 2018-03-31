@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script>
+        const app = angular.module("myapp", []);
+        app.directive("myFirstDirective", () => {
+            var object = {
+                template: '<h1>Hello My First Directive {{firstNo}} {{secondNo}}',
+                restrict: 'E'
+            }
+            return object;
+        })
+        app.directive("aboutUs", () => {
+            return {
+                template: '<p> About Us </p> ',
+                restrict: 'E'
+            }
+        })
+        app.directive("inputDir", () => {
+            return {
+                template: "<input type='text' >",
+                controller: "myctrl",
+                link: function(scope, element, attrs) {
+                    var str = "";
+                    console.log("Element is ", element[0]);
+                    // element[0].children[0].value = "My Value";
+                    element[0].children[0].addEventListener("keyup", function() {
+
+                        str = this.value
+                        scope.name = str;
+                        scope.takeInput(str);
+                        scope.$digest();
+                        console.log("Str is ", str);
+                    });
+
+                }
+            }
+        })
+        app.controller("myctrl", ($scope) => {
+            $scope.name = "";
+            $scope.firstNo = 100;
+            $scope.secondNo = 200;
+            $scope.takeInput = (name) => {
+                $scope.message = "Your Name is " + name;
+            }
+        })
+    </script>
+</head>
+
+<body ng-app="myapp" ng-controller="myctrl">
+    <my-first-directive></my-first-directive>
+    <about-us></about-us>
+    <input-dir></input-dir>
+    Name is {{name}}
+    <hr> Message is {{message}}
+</body>
+
+</html>
