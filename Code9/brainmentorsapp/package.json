@@ -1,0 +1,16 @@
+{
+    "name": "brainmentorsapp",
+    "version": "1.0.0",
+    "description": "this is test applictation",
+    "main": "index.js",
+    "scripts": {
+        "start": "node runner.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "brain",
+        "app"
+    ],
+    "author": "amit",
+    "license": "ISC"
+}
