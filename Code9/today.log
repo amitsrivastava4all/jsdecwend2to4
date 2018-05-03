@@ -1,0 +1,40 @@
+function app(){
+console.log("I am a App ");
+}
+undefined
+function express(){
+console.log("this is an express function ");
+return app;
+
+}
+undefined
+const e = express();
+VM193:2 this is an express function 
+undefined
+typeof a;
+"undefined"
+typeof e;
+"function"
+e;
+ƒ app(){
+console.log("I am a App ");
+}
+var middlewares = [];
+app.use = function(middleware){
+console.log(" i am a Use ");
+middlewares.push(middleware);
+}
+ƒ (middleware){
+console.log(" i am a Use ");
+middlewares.push(middleware);
+}
+app.use("body parser middleware");
+VM317:3  i am a Use 
+undefined
+middlewares;
+["body parser middleware"]
+app.use("security");
+VM317:3  i am a Use 
+undefined
+middlewares;
+(2) ["body parser middleware", "security"]
