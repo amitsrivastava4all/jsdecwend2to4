@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function exist(event) {
+
+            var val = event.target.value;
+            fetch("/search?userid=" + val).then(data => {
+                data.json().then(d => {
+                    console.log("D ", d.message);
+                    document.querySelector("#result").innerHTML = d.message;
+                })
+
+                // console.log("Data is ", data);
+            }).catch(err => {
+                document.querySelector("#result").innerHTML = err;
+                console.log("error is ", err);
+            });
+
+        }
+    </script>
+</head>
+
+<body>
+    <form action="register" method="post">
+        <input onchange="exist(event)" type="text" name="userid" placeholder="Type Userid Here">
+        <span id="result"></span>
+        <br>
+        <input type="password" name="pwd" placeholder="Type Password here">
+        <br>
+        <button type="submit">Login</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="bower_components/angular/angular.min.js"></script>
+</head>
+
+<body ng-app>
+    <div class="container">
+        <a class="btn btn-success" href="register.html">Register</a>
+        <a class="btn btn-primary" href="login.html">Login</a>
+        <input type="text" placeholder="Type Name Here" class="form-control" ng-model="name">
+        <h2 class="alert-danger">Your Name is {{name}}</h2>
+    </div>
+
+</body>
+
+</html>
